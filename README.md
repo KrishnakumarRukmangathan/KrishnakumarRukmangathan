@@ -1,6 +1,6 @@
 - 👋 Hi, I’m @KrishnakumarRukmangathan
 - 👀 I’m interested in anything that involves movement or processing of data! 
-- 🌱 I’m currently learning Azure Data Movement technolgies.  
+- 🌱 I’m currently learning Azure Data Movement technologies.  
 - 💞️ I’m looking to collaborate on anything that I can assist! 
 - 📫 How to reach me @krishnakumr@gmail.com or @krirukm@microsoft.com
 
