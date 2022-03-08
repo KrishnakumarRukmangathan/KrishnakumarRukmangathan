@@ -1,0 +1,12 @@
+{
+	"name": "LnkSrvCAAP01AzADLSGen2",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"description": "Linked service to connect caap gen2 datalake",
+		"annotations": [],
+		"type": "AzureBlobFS",
+		"typeProperties": {
+			"url": "https://caap01pdls.dfs.core.windows.net"
+		}
+	}
+}
