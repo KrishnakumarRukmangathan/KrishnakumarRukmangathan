@@ -1,0 +1,30 @@
+{
+	"name": "AppendDelta",
+	"properties": {
+		"folder": {
+			"name": "GenericSCD"
+		},
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"name": "IngestInput"
+				}
+			],
+			"sinks": [
+				{
+					"name": "WriteToRaw"
+				}
+			],
+			"transformations": [
+				{
+					"name": "AddColumns"
+				},
+				{
+					"name": "RemoveTechnicalColumns"
+				}
+			],
+			"script": "parameters{\n\traw_folder as string,\n\tprocess_date as string\n}\nsource(allowSchemaDrift: true,\n\tvalidateSchema: false) ~> IngestInput\nRemoveTechnicalColumns derive(processing_date = toTimestamp($process_date),\n\t\tyear = substring($process_date,0,4)) ~> AddColumns\nIngestInput select(mapColumn(\n\t\teach(match(!in(['processing_date'],name))),\n\t\teach(match(in(['processing_date'],name)),\n\t\t\t'source_'+$$ = $$)\n\t),\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> RemoveTechnicalColumns\nAddColumns sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\tpartitionBy('key',\n\t\t0,\n\t\tyear\n\t),\n\tformat: 'delta',\n\tfileSystem: 'caap',\n\tfolderPath: ($raw_folder),\n\tmergeSchema: true,\n\tautoCompact: true,\n\toptimizedWrite: true,\n\tvacuum: 0,\n\tpreCommands: [],\n\tpostCommands: []) ~> WriteToRaw"
+		}
+	}
+}
