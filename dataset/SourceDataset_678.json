@@ -1,0 +1,68 @@
+{
+	"name": "SourceDataset_678",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureFileStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureFileStorageLocation",
+				"fileName": "OlympicsData.csv"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "MedalistID",
+				"type": "String"
+			},
+			{
+				"name": "Edition",
+				"type": "String"
+			},
+			{
+				"name": "Athlete",
+				"type": "String"
+			},
+			{
+				"name": "NOC",
+				"type": "String"
+			},
+			{
+				"name": "Gender",
+				"type": "String"
+			},
+			{
+				"name": "Event",
+				"type": "String"
+			},
+			{
+				"name": "Medal",
+				"type": "String"
+			},
+			{
+				"name": "Season",
+				"type": "String"
+			},
+			{
+				"name": "MedalValue",
+				"type": "String"
+			},
+			{
+				"name": "SportID",
+				"type": "String"
+			},
+			{
+				"name": "DisciplineID",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,17 @@
+{
+	"name": "DestinationDataset_678",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "Olympics",
+			"table": "Azure File Storage file"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

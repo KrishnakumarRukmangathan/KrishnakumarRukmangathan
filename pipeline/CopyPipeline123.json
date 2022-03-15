@@ -1,0 +1,195 @@
+{
+	"name": "CopyPipeline123",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy_678",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "/OlympicsData.csv"
+					},
+					{
+						"name": "Destination",
+						"value": "Olympics.Azure File Storage file"
+					}
+				],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureFileStorageReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings",
+							"skipLineCount": 0
+						}
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"tableOption": "autoCreate"
+					},
+					"enableStaging": false,
+					"validateDataConsistency": true,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "MedalistID",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "MedalistID",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Edition",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Edition",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Athlete",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Athlete",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "NOC",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "NOC",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Gender",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Gender",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Event",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Event",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Medal",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Medal",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Season",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Season",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "MedalValue",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "MedalValue",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "SportID",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "SportID",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "DisciplineID",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "DisciplineID",
+									"type": "String"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "SourceDataset_678",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DestinationDataset_678",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2021-11-22T11:45:15Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
